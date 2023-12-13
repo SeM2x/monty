@@ -9,7 +9,7 @@
 char *strip(char *input)
 {
 	size_t len = strlen(input);
-	char result[1024 * 1024];
+	char result[1024 * 1024], *res;
 	size_t i, j = 0;
 	int prev_space = 1;
 
@@ -44,5 +44,7 @@ char *strip(char *input)
 
 	result[j] = '\0';
 
-	return (strdup(result));
+	res = malloc(strlen(result) * sizeof(char));
+	strcpy(res, result);
+	return (res);
 }

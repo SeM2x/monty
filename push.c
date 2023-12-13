@@ -3,7 +3,6 @@
 void push(stack_t **stack, unsigned int line)
 {
 	stack_t *node = NULL;
-	int i;
 	char *token;
 
 	token = strtok(commands[line - 1], " ");

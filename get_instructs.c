@@ -10,14 +10,19 @@ instruction_t *get_instructs(char **cmds, int len)
 	instructions = malloc(len * sizeof(instruction_t));
 	while (*cmds)
 	{
-		tmp = strdup(*cmds);
+		tmp = malloc(strlen(*cmds) * sizeof(char));
+		strcpy(tmp, *cmds);
                 token = strtok(tmp, " ");
                 if (token != NULL)
                 {
-                        opcode = strdup(token);
+                        opcode = malloc(strlen(token) * sizeof(char));
+			strcpy(opcode, token);
                         token = strtok(NULL, " ");
                         if (token != NULL)
-                                arg = strdup(token);
+			{
+                                arg = malloc(strlen(token) * sizeof(char));
+				strcpy(arg, token);
+			}
                         else
                                 arg = NULL;
                 }
