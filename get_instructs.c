@@ -46,6 +46,8 @@ instruction_t *get_instructs(char **cmds, int len)
 			instructions[i].f = push;
 		else if (strcmp(opcode, "pall") == 0)
 			instructions[i].f = pall;
+		else if (strcmp(opcode, "pint") == 0)
+			instructions[i].f = pint;
 		else
 			instructions[i].f = inst_err;
 		instructions[i].opcode = opcode;
