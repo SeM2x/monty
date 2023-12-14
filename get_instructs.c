@@ -47,7 +47,15 @@ instruction_t *get_instructs(char **cmds, int len)
 		else if (strcmp(opcode, "pall") == 0)
 			instructions[i].f = pall;
 		else if (strcmp(opcode, "pint") == 0)
-			instructions[i].f = pint;
+			instructions[i].f = pint;	
+		else if (strcmp(opcode, "pop") == 0)
+			instructions[i].f = pop;
+		else if (strcmp(opcode, "swap") == 0)
+			instructions[i].f = swap;
+		else if (strcmp(opcode, "add") == 0)
+			instructions[i].f = add;
+		else if (strcmp(opcode, "nop") == 0)
+			instructions[i].f = nop;
 		else
 			instructions[i].f = inst_err;
 		instructions[i].opcode = opcode;
