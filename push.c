@@ -8,10 +8,9 @@ void push(stack_t **stack, unsigned int line)
 	token = strtok(commands[line - 1], " ");
 	token = strtok(NULL, " ");
 	
-	if (token == NULL)
+	if (token == NULL || !is_number(token))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line);
-		free(token);
 		exit(EXIT_FAILURE);
 	}
 	

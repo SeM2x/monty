@@ -53,5 +53,6 @@ void pall(stack_t **stack, unsigned int line_number);
 void inst_err(stack_t **stack, unsigned int line);
 int get_lines(const char *str);
 void print_err(char *msg);
+int is_number(const char *str);
 
 #endif
