@@ -8,7 +8,5 @@ void pall(stack_t **stack, unsigned int line_number)
 		printf("%d\n", node->n);
 		node = node->prev;
 	}
-	if (node == *stack)
-		printf("%d", line_number);
-
+	line_number++;
 }
