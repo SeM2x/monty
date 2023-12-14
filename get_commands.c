@@ -6,21 +6,17 @@
  *
  * Return:
 */
-char **get_commands(char *str)
+char **get_commands(char *str, int len)
 {
 	char **commands = NULL, buff[1024], *tmp;
-	int i, j, k, len = 0;
+	int i, j, k;
 
 	if (!str)
 		return (NULL);
-	
-	for (i = 0; i < (int) strlen(str); i++)
-	{
-		if (str[i] == '\n')
-			len++;
-	}
 
 	commands = malloc((len + 1) * sizeof(char *));
+	if (!commands)
+		print_err("Error: malloc failed");
 
 	j = 0;
 	k = 0;
@@ -35,6 +31,8 @@ char **get_commands(char *str)
 			if (strcmp(buff, "\0"))
 			{
 				commands[k] = malloc((strlen(buff) + 1) * sizeof(char));
+				if (!commands[k])
+					print_err("Error: malloc failed");	
 				strcpy(commands[k], buff);
 				k++;
 			}

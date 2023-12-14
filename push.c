@@ -16,6 +16,9 @@ void push(stack_t **stack, unsigned int line)
 	}
 	
 	node = malloc(sizeof(stack_t));
+	if (!node)
+		print_err("Error: malloc failed");
+
 	node->n = atoi(token);
 	node->next = NULL;
 	node->prev = *stack;

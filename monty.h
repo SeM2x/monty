@@ -42,7 +42,7 @@ typedef struct instruction_s
 char **commands;
 
 char *get_file_content(char *file);
-char **get_commands(char *str);
+char **get_commands(char *str, int len);
 char *strip(char *input);
 void free_array(char **array);
 void free_instructs(instruction_t *array);
@@ -51,5 +51,7 @@ void init(stack_t **stack);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void inst_err(stack_t **stack, unsigned int line);
+int get_lines(const char *str);
+void print_err(char *msg);
 
 #endif

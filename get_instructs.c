@@ -7,20 +7,33 @@ instruction_t *get_instructs(char **cmds, int len)
 	int i = 0;
 	instruction_t *instructions;
 
+	if (cmds == NULL)
+		return (NULL);
+
 	instructions = malloc(len * sizeof(instruction_t));
+	if (!instructions)
+		print_err("Error: malloc failed");
+
 	while (*cmds)
 	{
 		tmp = malloc(strlen(*cmds) * sizeof(char));
+		if (!tmp)
+			print_err("Error: malloc failed");
 		strcpy(tmp, *cmds);
                 token = strtok(tmp, " ");
                 if (token != NULL)
                 {
                         opcode = malloc(strlen(token) * sizeof(char));
+			if (!opcode)
+				print_err("Error: malloc failed");
 			strcpy(opcode, token);
                         token = strtok(NULL, " ");
                         if (token != NULL)
 			{
                                 arg = malloc(strlen(token) * sizeof(char));
+				if (!arg)
+					print_err("Error: malloc failed");
+
 				strcpy(arg, token);
 			}
                         else

@@ -22,13 +22,8 @@ int main(int ac, char **av)
 	
 
 	content = get_file_content(av[1]);
-	len = 0;
-	for (i = 0; i < (int) strlen(content); i++)
-	{
-		if (content[i] == '\n')
-			len++;
-	}
-	commands = get_commands(content);
+	len = get_lines(content);
+	commands = get_commands(content, len);
 	instructions = get_instructs(commands, len);
 	
 	for (i = 0; i < len; i++)
@@ -36,11 +31,5 @@ int main(int ac, char **av)
 		instructions[i].f(&stack, i + 1);
 	}
 
-	free(content);
-	free_array(commands);
-	/*
-	for (i = 0; instructions[i].opcode != NULL; i++)
-		    free(instructions[i].opcode);
-	*/
 	return (0);
 }

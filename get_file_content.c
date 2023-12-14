@@ -23,6 +23,9 @@ char *get_file_content(char *file)
 
         fstat(fd, &fileStat);
         content = malloc(fileStat.st_size + 1);
+	if (!content)
+		print_err("Error: malloc failed");
+
         while(bytes_read > 0)
         {
                 bytes_read = read(fd, buffer, sizeof(buffer));

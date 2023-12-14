@@ -45,6 +45,8 @@ char *strip(char *input)
 	result[j] = '\0';
 
 	res = malloc(strlen(result) * sizeof(char));
+	if (!res)
+		print_err("Error: malloc failed");
 	strcpy(res, result);
 	return (res);
 }
