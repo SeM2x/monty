@@ -58,6 +58,18 @@ instruction_t *get_instructs(char **cmds, int len)
 			instructions[i].f = nop;
 		else if (strcmp(opcode, "\n") == 0)
 			instructions[i].f = nop;
+		else if (strcmp(opcode, "sub") == 0)
+			instructions[i].f = sub;
+		else if (strcmp(opcode, "div") == 0)
+			instructions[i].f = fdiv;
+		else if (strcmp(opcode, "mul") == 0)
+			instructions[i].f = mul;
+		else if (strcmp(opcode, "mod") == 0)
+			instructions[i].f = mod;
+		else if (strcmp(opcode, "pchar") == 0)
+			instructions[i].f = nop;
+		else if (strcmp(opcode, "pstr") == 0)
+			instructions[i].f = nop;
 		else
 			instructions[i].f = inst_err;
 		instructions[i].opcode = opcode;
