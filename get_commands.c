@@ -28,14 +28,15 @@ char **get_commands(char *str, int len)
 			tmp = strip(buff);
 			strcpy(buff, tmp);
 			free(tmp);
-			if (strcmp(buff, "\0"))
-			{
-				commands[k] = malloc((strlen(buff) + 1) * sizeof(char));
-				if (!commands[k])
+
+			commands[k] = malloc((strlen(buff) + 1) * sizeof(char));
+			if (!commands[k])
 					print_err("Error: malloc failed");	
+			if (strcmp(buff, "\0"))
 				strcpy(commands[k], buff);
-				k++;
-			}
+			else
+				strcpy(commands[k], "\n");
+			k++;
 			j = 0;
 		}
 		else

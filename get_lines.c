@@ -2,7 +2,7 @@
 
 int get_lines(const char *str)
 {
-	int lines, isNonEmptyLine, i;
+	int lines, i;
 
 	if (str == NULL)
 	{
@@ -10,29 +10,12 @@ int get_lines(const char *str)
 	}
 
 	lines = 0;
-	isNonEmptyLine = 0;
-
-	for (i = 0; str[i] != '\0'; i++)
+	
+	for (i = 0; i < (int) strlen(str); i++)
 	{
 		if (str[i] == '\n')
-		{
-			if (isNonEmptyLine)
-			{
-				lines++;
-			}
-
-			isNonEmptyLine = 0;
-		}
-		else if (!isspace((unsigned char) str[i]))
-		{
-			isNonEmptyLine = 1;
-		}
-	}
-
-	if (isNonEmptyLine)
-	{
-		lines++;
-	}
+			lines++;
+	}	
 
 	return (lines);
 }

@@ -56,6 +56,8 @@ instruction_t *get_instructs(char **cmds, int len)
 			instructions[i].f = add;
 		else if (strcmp(opcode, "nop") == 0)
 			instructions[i].f = nop;
+		else if (strcmp(opcode, "\n") == 0)
+			instructions[i].f = nop;
 		else
 			instructions[i].f = inst_err;
 		instructions[i].opcode = opcode;
